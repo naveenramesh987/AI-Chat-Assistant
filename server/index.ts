@@ -24,7 +24,7 @@ async function startServer() {
       const initialMessage = req.body.message;
       const threadId = Date.now().toString();
       try {
-        const response = await callAgent(initialMessage, threadId, client);
+        const response = await callAgent(client, initialMessage, threadId);
         res.json({ threadId, response });
       } catch (error) {
         console.error("Error starting conversation", error);
