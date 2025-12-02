@@ -36,7 +36,7 @@ async function startServer() {
       const threadId = req.params.threadId;
       const message = req.body.message;
       try {
-        const response = await callAgent(message, threadId, client);
+        const response = await callAgent(client, message, threadId);
         res.json({ threadId, response });
       } catch (error) {
         console.error("Error in chat", error);
